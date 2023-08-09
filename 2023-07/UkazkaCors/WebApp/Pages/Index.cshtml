@@ -1,0 +1,36 @@
+@page "/"
+@model WebApp.Pages.Index
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    <h1>Fórum</h1>
+
+    <form method="post">
+        <textarea rows="10" cols="40" asp-for="Message"></textarea><br/>
+        <input type="submit" value="Vložit text"/>
+    </form>
+
+    <h2>Zprávy</h2>
+    @foreach (var message in WebApp.Pages.Index.Messages)
+    {
+        <div>
+            <hr/>
+            <p>@Html.Raw(message)</p>
+        </div>
+    }
+
+
+</div>
+</body>
+</html>

